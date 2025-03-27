@@ -6,7 +6,7 @@ services:
     volumes:
       - ./config/nginx/:/etc/nginx/conf.d/
     ports:
-      - 80:80
+      - 8081:80
     depends_on:
       - backend
     networks:
@@ -24,6 +24,18 @@ services:
     networks:
       - web-services
 
+  pgadmin:
+    image: dpage/pgadmin4
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: 'postgres@example.com'
+      PGADMIN_DEFAULT_PASSWORD: 'password'
+    ports:
+      - 8080:80
+    depends_on:
+      - db
+    networks:
+      - web-services
   backend:
     build: backend
     restart: always
