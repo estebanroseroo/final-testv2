@@ -40,6 +40,7 @@ services:
     build: backend
     restart: always
     environment:
+      IS_PROD: "true"
       DB_HOST: db
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
