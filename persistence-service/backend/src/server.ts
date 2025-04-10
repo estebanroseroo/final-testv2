@@ -17,7 +17,11 @@ async function datamanager(environment: "prod" | "test") {
           filename: "photo-with-bears.jpg",
           views: 1,
           isPublished: true,
-        }
+        };
+      },
+      save: (entity: any) => {
+        console.log("Mock save called with", entity);
+        return Promise.resolve(entity);
       }
     }
   }
